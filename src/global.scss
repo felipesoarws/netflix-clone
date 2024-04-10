@@ -1,0 +1,28 @@
+:root {
+  --background: #141414;
+  --text: #fff;
+  --red: #e50914;
+  --black: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: cover;
+}
+
+@font-face {
+  font-family: "NetflixSans";
+  src: url("./fonts/NetflixSans-Regular.woff2") format("woff2"),
+    url("./fonts/NetflixSans-Regular.otf") format("otf");
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: "NetflixSans", sans-serif;
+}
