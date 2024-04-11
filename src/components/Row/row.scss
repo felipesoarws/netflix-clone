@@ -1,0 +1,105 @@
+.row-title {
+  padding: 1rem;
+  color: var(--text);
+  font-weight: bold;
+  font-size: 2rem;
+
+  @media (min-width: 1024px) {
+    padding: 2.3vw 4vw 0vw 4vw;
+    font-size: 1.5vw;
+  }
+}
+
+.row-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:hover .arrow {
+    opacity: 1;
+  }
+
+  .arrow {
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    cursor: pointer;
+    background-color: var(--background);
+    border-radius: 50%;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.left {
+      left: 1.5rem;
+    }
+
+    &.right {
+      right: 0.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 3vw;
+  }
+
+  .slider {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    position: relative;
+
+    .slide {
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      width: 15rem;
+      margin: 1rem;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    .slide-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        white-space: initial;
+        color: var(--text);
+        font-weight: bold;
+        font-size: 0.9rem;
+
+        svg {
+          position: absolute;
+          top: 0.5rem;
+          left: 0.5rem;
+          color: gray;
+          font-size: 1.5rem;
+        }
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.75);
+        opacity: 1;
+      }
+    }
+  }
+}
