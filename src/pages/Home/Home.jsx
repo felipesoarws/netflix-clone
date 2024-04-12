@@ -1,6 +1,5 @@
 import Main from "../../components/Main/Main";
 import Row from "../../components/Row/Row";
-import "./home.scss";
 
 import requests from "../../requests";
 
