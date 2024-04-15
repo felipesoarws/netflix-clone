@@ -1,7 +1,28 @@
 import "./login.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { UserAuth } from "../../context/AuthContext";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
+  const { user, logIn } = UserAuth();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      await logIn(email, password);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <>
       <div className="container-signup">
@@ -14,9 +35,16 @@ const Login = () => {
           <div className="sec">
             <div className="content">
               <h1>Sign In</h1>
-              <form>
-                <input type="email" placeholder="Email" autoComplete="Email" />
+              {error ? <p className="error-message">{error}</p> : null}
+              <form onSubmit={handleSubmit}>
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  placeholder="Email"
+                  autoComplete="Email"
+                />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
                   type="Password"
                   placeholder="Password"
                   autoComplete="current-password"
